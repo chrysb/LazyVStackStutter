@@ -20,17 +20,11 @@ struct ContentView: View {
       ScrollView {
         LazyVStack(spacing: 10) {
           ForEach(Array(items.enumerated()), id: \.offset) { index, item in
-            HStack {
-              Text(item)
-                .background(colors.randomElement()!)
-            }
-            .rotationEffect(.radians(.pi))
-            .scaleEffect(x: -1, y: 1, anchor: .center)
+            Text(item)
+              .background(colors.randomElement()!)
           }
         }
       }
-      .rotationEffect(.radians(.pi))
-      .scaleEffect(x: -1, y: 1, anchor: .center)
     }
   }
 }
