@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct Message: Identifiable {
+  let id = UUID()
+  var text: String
+}
+
 struct MockData {
   static let cannedText = [
     "Quisque maximus non est non condimentum.",
@@ -21,12 +26,12 @@ struct MockData {
     return cannedText.randomElement()
   }
   
-  static func randomMessages(count: Int) -> [String] {
-    var messages = [String]()
+  static func randomMessages(count: Int) -> [Message] {
+    var messages = [Message]()
     
     for _ in 0..<count {
       if let message = cannedText.randomElement() {
-        messages.append(message)
+        messages.append(Message(text: message))
       }
     }
     return messages
